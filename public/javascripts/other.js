@@ -29,12 +29,13 @@ var linenum;
         console.log(linenum);
 
         $.ajax({
-            url: "/a",
+            url: "/other/line",
             data: {citycode: citycode, linenum: linenum},
             success: (data) =>{
-                //console.log(data);
-                //console.log(data.response.body.items.item);
-                /*var Item = data.response.body.items.item;
+                var resultObj = JSON.parse(data);
+                console.log(resultObj);
+                console.log(resultObj.response.body.items.item);
+                var Item = resultObj.response.body.items.item;
                 if(Item == undefined)
                 {
                     alert("요청하신 노선은 없네요 ㅠ");
@@ -83,21 +84,19 @@ var linenum;
                         return;
                     }             
                     
-                }*/
+                }
             }
         })
     }
-    /*function uproute()
+    function uproute()
     {
-        var table="<tr><th>No</th><th>Bus Stop Num</th><th>Bus Stop Name</th></tr>";
         $.ajax({
-            url: "http://openapi.tago.go.kr/openapi/service/BusRouteInfoInqireService/getRouteAcctoThrghSttnList?serviceKey="+servicekey+"&numOfRows=100&pageNo=1&cityCode="+citycode+"&routeId="+uprouteid+"&_type=json",
-            type: 'get',
-            dataType: 'json',
-            success: function(msg){
-                
-                var Item = msg.response.body.items.item;
-
+            url: "/other/routeid",
+            data: {citycode: citycode, routeid: uprouteid},
+            success: (data) => {
+                var resultObj = JSON.parse(data);
+                var Item = resultObj.response.body.items.item;
+                var table="<tr><th>No</th><th>Bus Stop Num</th><th>Bus Stop Name</th></tr>";
                 for(let i = 0; i<Item.length;i++)
                 {
                     
@@ -105,22 +104,20 @@ var linenum;
                         Item[i].nodeno+"</td><td>"+
                         Item[i].nodenm+"</td></tr>";
                         $("#route")[0].innerHTML = table;
-                    
                 }
+
             }
-        });
+        })
     }
     function downroute()
     {
-        var table="<tr><th>No</th><th>Bus Stop Num</th><th>Bus Stop Name</th></tr>";
         $.ajax({
-            url: "http://openapi.tago.go.kr/openapi/service/BusRouteInfoInqireService/getRouteAcctoThrghSttnList?serviceKey="+servicekey+"&numOfRows=100&pageNo=1&cityCode="+citycode+"&routeId="+downrouteid+"&_type=json",
-            type: 'get',
-            dataType: 'json',
-            success: function(msg){
-                
-                var Item = msg.response.body.items.item;
-
+            url: "/other/routeid",
+            data: {citycode: citycode, routeid: downrouteid},
+            success: (data) => {
+                var resultObj = JSON.parse(data);
+                var Item = resultObj.response.body.items.item;
+                var table="<tr><th>No</th><th>Bus Stop Num</th><th>Bus Stop Name</th></tr>";
                 for(let i = 0; i<Item.length;i++)
                 {
                     
@@ -128,11 +125,11 @@ var linenum;
                         Item[i].nodeno+"</td><td>"+
                         Item[i].nodenm+"</td></tr>";
                         $("#route")[0].innerHTML = table;
-                    
                 }
+
             }
-        });
-    }*/
+        })  
+    }
 
     function loadDoc() {
         var xhttp = new XMLHttpRequest();
