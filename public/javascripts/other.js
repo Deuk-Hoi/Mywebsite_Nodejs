@@ -132,7 +132,7 @@ var linenum;
     }
 
     function loadDoc() {
-        var xhttp = new XMLHttpRequest();
+        /*var xhttp = new XMLHttpRequest();
         country = $("#country").val();
         building = $("#building").val();
         xhttp.onreadystatechange = function() {
@@ -141,7 +141,18 @@ var linenum;
           }
         };
         xhttp.open("GET", "http://openapi.epost.go.kr/postal/retrieveLotNumberAdressAreaCdService/retrieveLotNumberAdressAreaCdService/getComplexListAreaCd?ServiceKey=4bppUTzZtqi1tLwhMbLNz36lDIGL%2FETSLGd1dwvigsRy3WZk4ALOuGJZqcyH7ERTJnouGKHO1R8jMpTTQ1VwVA%3D%3D&areaNm="+country+"&searchSe=and&srchwrd="+building, true);
-        xhttp.send();
+        xhttp.send();*/
+        country = $("#country").val();
+        building = $("#building").val();
+        $.ajax({
+            url: "/other/address",
+            data: {country: country, building: building},
+            success: (data) =>{
+                /*var resultObj = JSON.parse(data);
+                console.log(resultObj);*/
+                console.log(data);
+            }
+        })
       }
       
       function myFunction(xml) {
