@@ -55,26 +55,6 @@ router.get('/address', function(req, res, next){
       }
     }
   })
-  /*request.get(url, (err, res, body) => {
-    
-    if(err)
-    {
-      console.log(`err => ${err}`);
-    }
-    else{
-      if(res.statusCode == 200)
-      {
-        var result = body;
-        //console.log(`body data => ${result}`);
-        xmlToJson = convert.xml2json(result, {compact: true, spaces: 4});
-        //console.log(`xml to json => ${xmlToJson}`); 
-        
-      }
-    }
-    res.send(xmlToJson);
-  })*/
-  
-
 })
 
 module.exports = router;
