@@ -39,7 +39,23 @@ router.get('/address', function(req, res, next){
   console.log(country+" "+building);
   var url = "http://openapi.epost.go.kr/postal/retrieveLotNumberAdressAreaCdService/retrieveLotNumberAdressAreaCdService/getComplexListAreaCd?ServiceKey=4bppUTzZtqi1tLwhMbLNz36lDIGL%2FETSLGd1dwvigsRy3WZk4ALOuGJZqcyH7ERTJnouGKHO1R8jMpTTQ1VwVA%3D%3D&areaNm="+encodeURI(country)+"&searchSe=and&srchwrd="+encodeURI(building);
   var xmlToJson;
-  request.get(url, (err, res, body) => {
+  request({url: url,  method: 'GET'}, function(error, response, body){
+    if(error)
+    {
+      console.log(`error => ${error}`);
+    }
+    else{
+      if(res.statusCode == 200)
+      {
+        var result = body;
+        //console.log(`body data => ${result}`);
+        xmlToJson = convert.xml2json(result, {compact: true, spaces: 4});
+        //console.log(`xml to json => ${xmlToJson}`); 
+        res.json(xmlToJson);
+      }
+    }
+  })
+  /*request.get(url, (err, res, body) => {
     
     if(err)
     {
@@ -52,12 +68,12 @@ router.get('/address', function(req, res, next){
         //console.log(`body data => ${result}`);
         xmlToJson = convert.xml2json(result, {compact: true, spaces: 4});
         //console.log(`xml to json => ${xmlToJson}`); 
-        res.json(xmlToJson);
+        
       }
     }
-
-  })
-  //res.json(xmlToJson);
+    res.send(xmlToJson);
+  })*/
+  
 
 })
 

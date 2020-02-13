@@ -151,6 +151,35 @@ var linenum;
                 /*var resultObj = JSON.parse(data);
                 console.log(resultObj);*/
                 console.log(data);
+                var resultObj = JSON.parse(data);
+                var Item = resultObj.ComplexListResponse.complexListAreaCd;
+                //console.log(Item.zipNo._text);
+                var table="<tr><th>No</th><th>Post</th><th>Address</th></tr>";
+                if(Item.length == undefined)
+                {
+                    table += "<tr><td>"+Item.no._text+"</td><td>"+
+                    Item.zipNo._text+"</td><td>"+
+                    Item.adres._text+"</td></tr>";
+                    $("#demo")[0].innerHTML = table;    
+                }
+                else{
+                    for(let i = 0; i<Item.length;i++)
+                    {
+                        table += "<tr><td>"+Item[i].no._text+"</td><td>"+
+                        Item[i].zipNo._text+"</td><td>"+
+                        Item[i].adres._text+"</td></tr>";
+                        $("#demo")[0].innerHTML = table;                        
+                    }
+                }
+               
+                /*for(let i = 0; i<Item.length;i++)
+                {
+                    table += "<tr><td>"+Item.no+"</td><td>"+
+                    Item.zipNo._text+"</td><td>"+
+                    Item.adres+"</td></tr>";
+                    $("#demo")[0].innerHTML = table;                        
+                }*/
+                
             }
         })
       }
