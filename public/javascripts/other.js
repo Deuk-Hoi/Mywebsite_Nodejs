@@ -171,32 +171,6 @@ var linenum;
                         $("#demo")[0].innerHTML = table;                        
                     }
                 }
-               
-                /*for(let i = 0; i<Item.length;i++)
-                {
-                    table += "<tr><td>"+Item.no+"</td><td>"+
-                    Item.zipNo._text+"</td><td>"+
-                    Item.adres+"</td></tr>";
-                    $("#demo")[0].innerHTML = table;                        
-                }*/
-                
             }
         })
-      }
-      
-      function myFunction(xml) {
-        var i;
-        var xmlDoc = xml.responseXML;
-        var table="<tr><th>No</th><th>Post</th><th>Address</th></tr>";
-        var x = xmlDoc.getElementsByTagName("complexListAreaCd");
-        for (i = 0; i <x.length; i++) { 
-          table += "<tr><td>" +
-          x[i].getElementsByTagName("no")[0].childNodes[0].nodeValue +
-          "</td><td>" +
-          x[i].getElementsByTagName("zipNo")[0].childNodes[0].nodeValue +
-          "</td><td>"+
-          x[i].getElementsByTagName("adres")[0].childNodes[0].nodeValue +
-          "</td></tr>";
-        }
-        document.getElementById("demo").innerHTML = table;
       }
