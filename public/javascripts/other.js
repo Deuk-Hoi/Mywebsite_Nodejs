@@ -80,7 +80,7 @@ var linenum;
                     {
                         $("#up").css("visibility", "hidden");
                         $("#down").css("visibility", "hidden");
-                        alert("요청하신 노선은 없네요 ㅠ");
+                        alert("요청하신 노선은 없네요 ㅠㅠ");
                         return;
                     }             
                     
