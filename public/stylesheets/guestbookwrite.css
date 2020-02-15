@@ -1,0 +1,32 @@
+body{
+    margin: 0;
+}
+.GuestbookImg{
+    background-image: url(/images/GuestbookMain.jpg);
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    text-align: center;
+    padding: 10em 2em 10em 2em;
+    /* padding :170px 0 100px 0; */
+   
+}
+
+.GuestbookImg h2{
+    font: bold 30pt '경기천년제목';
+    color: white;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+#title{
+    text-align: center;
+    padding: 30px;
+    font: bold 20pt '경기천년제목' ;
+    border-bottom: 1px solid black;
+}
+
+#submit{
+    text-align: right;
+    margin-right: 50px;
+}

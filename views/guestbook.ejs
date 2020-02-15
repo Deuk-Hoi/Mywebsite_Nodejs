@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/guestbook.css' />
+</head>
+<body>
+    <%-include('includes/header');%>
+    <div class="GuestbookImg">
+        <h2>Guest Book</h2>
+    </div>
+    <div id = 'title'>Guest Book</div>
+    <span>
+        <table id="table">
+            <tr><th>No</th><th>Name</th><th>Contents</th><th>Date</th></tr>
+            <%for(var i = 0; i<mydata.length; i++){%>
+                <tr>
+                    <td><%=mydata[i].no%></td>
+                    <td><%=mydata[i].name%></td>
+                    <td><%=mydata[i].contents%></td>
+                    <td><%=mydata[i].date.getFullYear()%>년 
+                        <%=mydata[i].date.getMonth()+1%>월
+                        <%=mydata[i].date.getDate()%>일
+                    </td>
+                </tr>
+            <%}%>      
+        </table>
+    </span>
+
+    <div id = 'write'><input type="button" value="작성하기" onclick="local.href ='/guestbook/guestbookwrite'"></div>
+    <%-include('includes/footer');%>
+</body>
+</html>
