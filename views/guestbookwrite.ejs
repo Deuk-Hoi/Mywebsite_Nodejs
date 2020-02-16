@@ -3,6 +3,8 @@
     <meta charset="UTF-8">
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/guestbookwrite.css' />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/javascripts/guestbookwrite.js"></script>
 </head>
 <body>
     <%-include('includes/header');%>
@@ -10,7 +12,19 @@
         <h2>Guest Book Write</h2>
     </div>
     <div id = 'title'>Guest Book</div>
-    <div id = 'submit'><input type="button" value="제출하기"></div>
+    <form id ='form_submit' method="post">
+        <table>
+            <tr>
+                <th>Name</th><td><input id = 'name' name = 'name' type="text" placeholder="이름을 입력하시오."></td><th>Date</th><td id = 'date'></td>
+            </tr>
+            <tr>
+                <td colspan="4"><input id = 'contents' name = 'contents' type="text" placeholder="내용을 입력하시오."></td>
+            </tr>
+        </table>
+    </form>
+    <div id = 'submit'><input type="button" value="제출하기" onclick="a()"></div>
+    
     <%-include('includes/footer');%>
+    
 </body>
 </html>

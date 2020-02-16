@@ -30,3 +30,28 @@ body{
     text-align: right;
     margin-right: 50px;
 }
+
+table,th,td {
+    border : 1px solid black;
+    border-collapse: collapse;
+}
+
+th,td {
+    padding: 5px;
+    font-size: 20px;
+    
+}
+table{
+    margin: auto;
+    margin-top: 20px;
+}
+#name{
+    background-color: transparent;
+    border: 0 solid black;
+}
+
+#contents{
+    background-color: transparent;
+    border: 0 solid black;
+    width: 100%;
+}

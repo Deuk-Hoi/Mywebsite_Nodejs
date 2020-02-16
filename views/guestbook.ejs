@@ -13,7 +13,13 @@
     <span>
         <table id="table">
             <tr><th>No</th><th>Name</th><th>Contents</th><th>Date</th></tr>
-            <%for(var i = 0; i<mydata.length; i++){%>
+            <%for(var i = (page_num-1)* max_value; i<page_num*max_value; i++){%>
+                <% var data = mydata[i];
+                    if(data === undefined)
+                    {
+                        continue;
+                    }
+                %>
                 <tr>
                     <td><%=mydata[i].no%></td>
                     <td><%=mydata[i].name%></td>
@@ -26,8 +32,14 @@
             <%}%>      
         </table>
     </span>
+    <br>
+    <div id = 'pagenum'>
+        <%for(var i = 1; i<= Math.ceil(mydata.length / max_value); i++){%>
+            <a href='/guestbook/page/<%=i%>'><%=i %></a>
+        <%}%>
+    </div>
 
-    <div id = 'write'><input type="button" value="작성하기" onclick="local.href ='/guestbook/guestbookwrite'"></div>
+    <div id = 'write'><input type="button" value="작성하기" onclick="location.href ='/guestbook/guestbookwrite'"></div>
     <%-include('includes/footer');%>
 </body>
 </html>

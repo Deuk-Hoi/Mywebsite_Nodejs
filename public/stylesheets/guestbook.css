@@ -36,9 +36,14 @@ body{
     margin-right: 50px;
 }
 
+#pagenum{
+    text-align: center;
+}
+
 table,th,td {
     border : 1px solid black;
     border-collapse: collapse;
+    font-size: 15pt;
 }
 
 th,td {
